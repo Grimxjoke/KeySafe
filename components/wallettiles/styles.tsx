@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Tilt from "react-parallax-tilt";
 
 export const WalletTilesWrapper = styled.div`
   display: flex;
@@ -29,12 +30,32 @@ export const CardName = styled.h1`
   margin: 0px;
   font-size: 40px;
   font-family: roboto;
-  cursor: none;
+  cursor: default;
 `;
 export const CardAddress = styled.h2`
   padding: 0px;
   margin: 0px;
   font-size: 20px;
   font-family: roboto;
-  cursor: none;
+  cursor: default;
+`;
+export const EtherscanButton = styled.button`
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+`;
+export const StyledTilt = styled(Tilt)`
+  transform-style: preserve-3d;
+  @include background;
+`;
+
+export const Title = styled.h1`
+  font-size: 50px;
+  font-family: roboto;
+  padding: 0px;
+  margin: 10px;
+`;
+export const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
