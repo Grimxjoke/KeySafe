@@ -1,3 +1,5 @@
+import { StepsWrapper } from "./styles";
+
 export function Success() {
-  return <></>;
+  return <StepsWrapper></StepsWrapper>;
 }
