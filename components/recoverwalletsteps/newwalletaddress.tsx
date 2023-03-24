@@ -1,3 +1,5 @@
+import { StepsWrapper } from "./styles";
+
 export function NewWalletAddress() {
-  return <></>;
+  return <StepsWrapper></StepsWrapper>;
 }
