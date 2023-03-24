@@ -1,3 +1,4 @@
+import { useState, Dispatch, SetStateAction } from "react";
 import {
   PageWrapper,
   NewWalletAddress,
@@ -5,10 +6,10 @@ import {
   Success,
   Error,
 } from "../components";
-import { useState } from "react";
 
 type CurrentStepProps = {
   step: steps;
+  setCurrentStep: Dispatch<SetStateAction<steps>>;
 };
 type steps = "lostWalletAddress" | "newWalletAddress" | "error" | "success";
 
@@ -17,7 +18,7 @@ export default function Recover() {
   return (
     <PageWrapper>
       {" "}
-      <CurrentStep step={currentStep} />
+      <CurrentStep setCurrentStep={setCurrentStep} step={currentStep} />
     </PageWrapper>
   );
 }
