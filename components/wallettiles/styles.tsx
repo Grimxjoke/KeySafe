@@ -44,10 +44,6 @@ export const EtherscanButton = styled.button`
   bottom: 15px;
   right: 15px;
 `;
-export const StyledTilt = styled(Tilt)`
-  transform-style: preserve-3d;
-  @include background;
-`;
 
 export const Title = styled.h1`
   font-size: 50px;

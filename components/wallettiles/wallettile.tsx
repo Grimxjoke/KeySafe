@@ -6,7 +6,6 @@ import {
   CardName,
   CardAddress,
   EtherscanButton,
-  StyledTilt,
   Title,
   PageWrapper,
 } from "./styles";
