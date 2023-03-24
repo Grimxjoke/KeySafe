@@ -1,10 +1,14 @@
-import Tilt from "react-parallax-tilt";
 import Link from "next/link";
+import Tilt from "react-parallax-tilt";
 import {
   WalletTilesWrapper,
   WalletTileWrapper,
   CardName,
   CardAddress,
+  EtherscanButton,
+  StyledTilt,
+  Title,
+  PageWrapper,
 } from "./styles";
 import { WalletTileProps } from "./types";
 import { shortenAddress } from "../../helpers/shortenaddress";
@@ -26,22 +30,25 @@ const WalletTilesData = [
 
 export function WalletTiles() {
   return (
-    <WalletTilesWrapper>
-      {WalletTilesData.map(({ address, name }) => (
-        <WalletTile key={address} name={name} address={address} />
-      ))}
-    </WalletTilesWrapper>
+    <PageWrapper>
+      <Title>Your Recovery Wallets</Title>
+      <WalletTilesWrapper>
+        {WalletTilesData.map(({ address, name }) => (
+          <WalletTile key={address} name={name} address={address} />
+        ))}
+      </WalletTilesWrapper>
+    </PageWrapper>
   );
 }
 
 function WalletTile({ address, name }: WalletTileProps) {
   return (
-    <Tilt glareEnable={true} glareColor="#FFECEC">
+    <Tilt perspective={5000}>
       <WalletTileWrapper>
         <CardName>{name}</CardName>
         <CardAddress>{shortenAddress(address)}</CardAddress>
         <Link href={`https://etherscan.io/address/${address}`}>
-          <button>Etherscan</button>
+          <EtherscanButton>Etherscan</EtherscanButton>
         </Link>
       </WalletTileWrapper>
     </Tilt>
