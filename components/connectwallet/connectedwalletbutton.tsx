@@ -22,12 +22,13 @@ export function ConnectedWallet() {
       setConnectedAddress(address);
     }
   }, [address]);
+
   return (
     <>
       {connectors.map((connector) => {
         return (
           <ConnectedWalletButton
-            key="test"
+            key="Metamask"
             onClick={() => {
               if (connectedAddress) {
                 disconnect.disconnect();

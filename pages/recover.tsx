@@ -1,10 +1,12 @@
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction, useEffect } from "react";
+import { useAccount } from "wagmi";
 import {
   PageWrapper,
   NewWalletAddress,
   LostWalletAddress,
   Success,
   Error,
+  ConnectWalletMessage,
 } from "../components";
 
 type CurrentStepProps = {
@@ -24,7 +26,18 @@ export default function Recover() {
 }
 
 function CurrentStep({ step }: CurrentStepProps) {
-  if (step === "newWalletAddress") {
+  const [walletConnected, setWalletConnected] = useState(false);
+  const { isConnected } = useAccount();
+
+  useEffect(() => {
+    if (isConnected) {
+      setWalletConnected(true);
+    }
+  }, [isConnected]);
+
+  if (!walletConnected) {
+    return <ConnectWalletMessage />;
+  } else if (step === "newWalletAddress") {
     return <NewWalletAddress />;
   } else if (step === "lostWalletAddress") {
     return <LostWalletAddress />;

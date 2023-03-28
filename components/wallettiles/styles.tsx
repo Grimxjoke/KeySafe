@@ -24,7 +24,6 @@ export const WalletTileWrapper = styled.div`
   height: 30vh;
   padding: 20px;
 `;
-
 export const CardName = styled.h1`
   padding: 0px;
   margin: 0px;

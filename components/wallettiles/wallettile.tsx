@@ -42,14 +42,21 @@ export function WalletTiles() {
 
 function WalletTile({ address, name }: WalletTileProps) {
   return (
-    <Tilt perspective={5000}>
-      <WalletTileWrapper>
+    <Tilt className="parallax-effect" perspective={5000}>
+      <div className="inner-element">
         <CardName>{name}</CardName>
         <CardAddress>{shortenAddress(address)}</CardAddress>
         <Link href={`https://etherscan.io/address/${address}`}>
           <EtherscanButton>Etherscan</EtherscanButton>
         </Link>
-      </WalletTileWrapper>
+      </div>
+      {/* <WalletTileWrapper>
+        <CardName>{name}</CardName>
+        <CardAddress>{shortenAddress(address)}</CardAddress>
+        <Link href={`https://etherscan.io/address/${address}`}>
+          <EtherscanButton>Etherscan</EtherscanButton>
+        </Link>
+      </WalletTileWrapper> */}
     </Tilt>
   );
 }
